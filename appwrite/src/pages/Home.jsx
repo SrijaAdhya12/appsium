@@ -40,7 +40,7 @@ const Home = () => {
 			<Button variant="outline" onClick={logout}>
 				Logout
 			</Button>
-			<h1>Welcome {currentUser?.name}</h1>
+			<h1 className="text-2xl font-bold">Welcome {currentUser?.name}!</h1>
 		</div>
 	)
 }
