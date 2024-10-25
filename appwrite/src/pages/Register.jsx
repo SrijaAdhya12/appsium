@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Link } from 'react-router-dom'
-const Login = () => {
+
+const Register = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
 
@@ -47,14 +48,20 @@ const Login = () => {
 		}
 	}
 
+	const register = async () => {
+		try {
+			await account.create(ID.unique(), user.email, user.password, user.name)
+			await login(user.email, user.password)
+		} catch (error) {
+			console.error('Registration failed: An error occurred during registration. Please try again.')
+		}
+	}
 
 	return (
-		<Card className="w-full my-40 max-w-md mx-auto">
+		<Card className="w-full max-w-md mx-auto my-40">
 			<CardHeader className="text-center">
 				<CardTitle>Appsium</CardTitle>
-				<CardDescription>
-					Login
-				</CardDescription>
+				<CardDescription>Create a new account</CardDescription>
 			</CardHeader>
 			<CardContent className="space-y-4">
 				<div className="space-y-2">
@@ -71,13 +78,24 @@ const Login = () => {
 						value={user.password}
 					/>
 				</div>
-				<h1 className="text-muted-foreground">Don't have an account? <Link className="text-blue-500" to="/register">Register</Link></h1>
+				<div className="space-y-2">
+					<Label htmlFor="name">Name</Label>
+					<Input id="name" name="name" type="text" onChange={handleChange} value={user.name} />
+				</div>
+				<h1 className="text-muted-foreground">
+					Already have an account?{' '}
+					<Link className="text-blue-500" to="/login">
+						Login
+					</Link>
+				</h1>
 			</CardContent>
 			<CardFooter className="flex justify-center">
-				<Button className="w-full" onClick={() => login(user.email, user.password)}>Login</Button>
+				<Button className="w-full" onClick={register}>
+					Register
+				</Button>
 			</CardFooter>
 		</Card>
 	)
 }
 
-export default Login
+export default Register
