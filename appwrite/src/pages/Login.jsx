@@ -24,7 +24,6 @@ const Login = () => {
 			try {
 				const currentUser = await account.get()
 				setLoggedInUser(currentUser)
-				// If user is already logged in, redirect to home or the intended page
 				const from = location.state?.from?.pathname || '/'
 				navigate(from, { replace: true })
 			} catch (error) {
@@ -41,7 +40,6 @@ const Login = () => {
 			await account.createEmailPasswordSession(email, password)
 			const currentUser = await account.get()
 			setLoggedInUser(currentUser)
-			// Redirect to home or the intended page after successful login
 			const from = location.state?.from?.pathname || '/'
 			navigate(from, { replace: true })
 		} catch (error) {
@@ -55,16 +53,6 @@ const Login = () => {
 			await login(user.email, user.password)
 		} catch (error) {
 			console.error('Registration failed: An error occurred during registration. Please try again.')
-		}
-	}
-
-	const logout = async () => {
-		try {
-			await account.deleteSession('current')
-			setLoggedInUser(null)
-			navigate('/login')
-		} catch (error) {
-			console.error('Logout failed: An error occurred during logout. Please try again.')
 		}
 	}
 
@@ -99,9 +87,6 @@ const Login = () => {
 			<CardFooter className="flex justify-between">
 				<Button onClick={() => login(user.email, user.password)}>Login</Button>
 				<Button onClick={register}>Register</Button>
-				<Button variant="outline" onClick={logout}>
-					Logout
-				</Button>
 			</CardFooter>
 		</Card>
 	)
