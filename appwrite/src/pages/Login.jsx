@@ -84,7 +84,7 @@ const Login = () => {
 					<Input id="name" name="name" type="text" onChange={handleChange} value={user.name} />
 				</div>
 			</CardContent>
-			<CardFooter className="flex justify-between">
+			<CardFooter className="flex gap-10">
 				<Button onClick={() => login(user.email, user.password)}>Login</Button>
 				<Button onClick={register}>Register</Button>
 			</CardFooter>
