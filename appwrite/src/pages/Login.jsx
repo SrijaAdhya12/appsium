@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { account, ID } from '../lib/appwrite'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -15,9 +15,30 @@ const Login = () => {
 	const [user, setUser] = useState(initialData)
 	const [loggedInUser, setLoggedInUser] = useState(null)
 
+	useEffect(() => {
+		const checkSession = async () => {
+			try {
+				const currentUser = await account.get()
+				setLoggedInUser(currentUser)
+			} catch (error) {
+				console.log('No active session.')
+			}
+		}
+		checkSession()
+	}, [])
+
 	const handleChange = (e) => setUser({ ...user, [e.target.name]: e.target.value })
 
 	const login = async (email, password) => {
+		try {
+			const currentUser = await account.get() 
+			setLoggedInUser(currentUser)
+			console.log(`Already logged in as ${currentUser.name}`)
+			return 
+		} catch (error) {
+			// If an error occurs, proceed to login
+		}
+
 		try {
 			await account.createEmailPasswordSession(email, password)
 			const currentUser = await account.get()
@@ -49,9 +70,9 @@ const Login = () => {
 	}
 
 	return (
-		<Card className="w-full max-w-md mx-auto my-20">
+		<Card className="w-full max-w-md my-28 mx-auto">
 			<CardHeader>
-				<CardTitle>Appsium</CardTitle>
+				<CardTitle className="text-2xl font-bold">Appsium</CardTitle>
 				<CardDescription>
 					{loggedInUser ? `Logged in as ${loggedInUser.name}` : 'Login or create a new account'}
 				</CardDescription>
@@ -97,10 +118,10 @@ const Login = () => {
 				<Button className="w-full sm:w-auto" onClick={() => login(user.email, user.password)}>
 					Login
 				</Button>
-				<Button className="w-full sm:w-auto" onClick={register}>
+				<Button className="w-full sm:w-auto" variant="outline" onClick={register}>
 					Register
 				</Button>
-				<Button className="w-full sm:w-auto" variant="outline" onClick={logout}>
+				<Button className="w-full sm:w-auto" variant="secondary" onClick={logout}>
 					Logout
 				</Button>
 			</CardFooter>
