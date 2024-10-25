@@ -1,10 +1,10 @@
-import React from 'react'
-import { Login } from './pages'
+import { BrowserRouter } from 'react-router-dom'
+import { AppRouter } from '@/components'
 const App = () => {
   return (
-		<div>
-			<Login />
-		</div>
+		<BrowserRouter>
+			<AppRouter />
+		</BrowserRouter>
 	)
 }
 
