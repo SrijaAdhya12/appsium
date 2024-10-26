@@ -13,9 +13,9 @@ const Navbar = () => {
 					<div className="flex items-center">
 						<Link to="/" className="text-foreground flex items-center text-xl font-bold">
 							<img
-								src="https://query.gg/favicon.png"
+								src="https://appwrite.io/images/logos/appwrite.svg"
 								alt="Brand"
-								className="mr-2 size-7 animate-spin [animation-duration:10s]"
+								className="mr-2 size-7"
 							/>
 							<span className="hidden sm:block">Appsium</span>
 						</Link>
