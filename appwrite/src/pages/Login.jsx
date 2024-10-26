@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Link } from 'react-router-dom'
+import { OAuthButtons } from '@/components'
 const Login = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
@@ -74,7 +75,8 @@ const Login = () => {
 				<Button className="w-full" onClick={() => login(user.email, user.password)}>
 					Login
 				</Button>
-				<h1>
+				<OAuthButtons />
+				<h1 className="font-semibold text-sm">
 					Don't have an account?{' '}
 					<Link className="underline" to="/register">
 						Register
