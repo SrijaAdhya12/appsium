@@ -50,11 +50,9 @@ const Login = () => {
 
 	return (
 		<Card className="sm:w-full mx-4 my-40 sm:max-w-md sm:mx-auto">
-			<CardHeader className="text-center">
-				<CardTitle>Appsium</CardTitle>
-				<CardDescription>
-					Login
-				</CardDescription>
+			<CardHeader>
+				<CardTitle>Login</CardTitle>
+				<CardDescription>Enter your email and password to login</CardDescription>
 			</CardHeader>
 			<CardContent className="space-y-4">
 				<div className="space-y-2">
@@ -71,10 +69,17 @@ const Login = () => {
 						value={user.password}
 					/>
 				</div>
-				<h1 className="text-muted-foreground">Don't have an account? <Link className="text-blue-500" to="/register">Register</Link></h1>
 			</CardContent>
-			<CardFooter className="flex justify-center">
-				<Button className="w-full" onClick={() => login(user.email, user.password)}>Login</Button>
+			<CardFooter className="flex flex-col gap-4 justify-center">
+				<Button className="w-full" onClick={() => login(user.email, user.password)}>
+					Login
+				</Button>
+				<h1>
+					Don't have an account?{' '}
+					<Link className="underline" to="/register">
+						Register
+					</Link>
+				</h1>
 			</CardFooter>
 		</Card>
 	)

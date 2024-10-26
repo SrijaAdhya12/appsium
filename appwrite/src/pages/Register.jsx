@@ -59,11 +59,15 @@ const Register = () => {
 
 	return (
 		<Card className="sm:w-full mx-4 my-40 sm:max-w-md sm:mx-auto">
-			<CardHeader className="text-center">
-				<CardTitle>Appsium</CardTitle>
+			<CardHeader>
+				<CardTitle>Register</CardTitle>
 				<CardDescription>Create a new account</CardDescription>
 			</CardHeader>
 			<CardContent className="space-y-4">
+				<div className="space-y-2">
+					<Label htmlFor="name">Name</Label>
+					<Input id="name" name="name" type="text" onChange={handleChange} value={user.name} />
+				</div>
 				<div className="space-y-2">
 					<Label htmlFor="email">Email</Label>
 					<Input id="email" name="email" type="email" onChange={handleChange} value={user.email} />
@@ -78,21 +82,17 @@ const Register = () => {
 						value={user.password}
 					/>
 				</div>
-				<div className="space-y-2">
-					<Label htmlFor="name">Name</Label>
-					<Input id="name" name="name" type="text" onChange={handleChange} value={user.name} />
-				</div>
-				<h1 className="text-muted-foreground">
-					Already have an account?{' '}
-					<Link className="text-blue-500" to="/login">
-						Login
-					</Link>
-				</h1>
 			</CardContent>
-			<CardFooter className="flex justify-center">
+			<CardFooter className="flex flex-col gap-4 justify-center">
 				<Button className="w-full" onClick={register}>
 					Register
 				</Button>
+				<h1>
+					Already have an account?{' '}
+					<Link className="underline" to="/login">
+						Login
+					</Link>
+				</h1>
 			</CardFooter>
 		</Card>
 	)
