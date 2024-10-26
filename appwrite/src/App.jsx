@@ -1,9 +1,12 @@
 import { BrowserRouter } from 'react-router-dom'
 import { AppRouter } from '@/components'
+import { ThemeProvider } from '@/providers'
 const App = () => {
   return (
 		<BrowserRouter>
-			<AppRouter />
+			<ThemeProvider>
+				<AppRouter />
+			</ThemeProvider>
 		</BrowserRouter>
 	)
 }
