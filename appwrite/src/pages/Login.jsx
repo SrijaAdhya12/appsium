@@ -49,7 +49,7 @@ const Login = () => {
 
 
 	return (
-		<Card className="w-full my-40 max-w-md mx-auto">
+		<Card className="sm:w-full mx-4 my-40 sm:max-w-md sm:mx-auto">
 			<CardHeader className="text-center">
 				<CardTitle>Appsium</CardTitle>
 				<CardDescription>

@@ -58,7 +58,7 @@ const Register = () => {
 	}
 
 	return (
-		<Card className="w-full max-w-md mx-auto my-40">
+		<Card className="sm:w-full mx-4 my-40 sm:max-w-md sm:mx-auto">
 			<CardHeader className="text-center">
 				<CardTitle>Appsium</CardTitle>
 				<CardDescription>Create a new account</CardDescription>
