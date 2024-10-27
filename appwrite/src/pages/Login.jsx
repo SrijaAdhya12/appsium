@@ -58,11 +58,12 @@ const Login = () => {
 			<CardContent className="space-y-4">
 				<div className="space-y-2">
 					<Label htmlFor="email">Email</Label>
-					<Input id="email" name="email" type="email" onChange={handleChange} value={user.email} />
+					<Input placeholder="pritam@gmail.com" id="email" name="email" type="email" onChange={handleChange} value={user.email} />
 				</div>
 				<div className="space-y-2">
 					<Label htmlFor="password">Password</Label>
 					<Input
+						placeholder="pritam@69"
 						id="password"
 						name="password"
 						type="password"
