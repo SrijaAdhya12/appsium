@@ -13,7 +13,7 @@ const Navbar = () => {
 					<div className="flex items-center">
 						<Link to="/" className="text-foreground flex items-center text-xl font-bold">
 							<img
-								src="https://appwrite.io/images/logos/appwrite.svg"
+								src="https://seekvectors.com/storage/images/Appwrite-logo.svg"
 								alt="Brand"
 								className="mr-2 size-7"
 							/>
