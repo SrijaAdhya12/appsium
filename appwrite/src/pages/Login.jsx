@@ -7,10 +7,11 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Link } from 'react-router-dom'
 import { OAuthButtons } from '@/components'
+import { useToast } from '@/hooks'
 const Login = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
-
+	const { toast } = useToast()
 	const initialData = {
 		email: '',
 		password: '',
@@ -27,6 +28,12 @@ const Login = () => {
 				setLoggedInUser(currentUser)
 				const from = location.state?.from?.pathname || '/'
 				navigate(from, { replace: true })
+				toast({
+					title: 'Welcome back!',
+					description: 'You have been successfully logged in.',
+					variant: 'default',
+					duration: 3000
+				})
 			} catch (error) {
 				console.log('No active session.')
 			}
@@ -43,11 +50,22 @@ const Login = () => {
 			setLoggedInUser(currentUser)
 			const from = location.state?.from?.pathname || '/'
 			navigate(from, { replace: true })
+			toast({
+				title: 'Login successful!',
+				description: 'Welcome to your account.',
+				variant: 'default',
+				duration: 3000
+			})
 		} catch (error) {
+			toast({
+				title: 'Login failed',
+				description: 'Please check your credentials and try again.',
+				variant: 'destructive',
+				duration: 5000
+			})
 			console.error('Login failed: Please check your credentials and try again.')
 		}
 	}
-
 
 	return (
 		<Card className="sm:w-full mx-4 my-40 sm:max-w-md sm:mx-auto">
@@ -58,7 +76,14 @@ const Login = () => {
 			<CardContent className="space-y-4">
 				<div className="space-y-2">
 					<Label htmlFor="email">Email</Label>
-					<Input placeholder="pritam@gmail.com" id="email" name="email" type="email" onChange={handleChange} value={user.email} />
+					<Input
+						placeholder="pritam@gmail.com"
+						id="email"
+						name="email"
+						type="email"
+						onChange={handleChange}
+						value={user.email}
+					/>
 				</div>
 				<div className="space-y-2">
 					<Label htmlFor="password">Password</Label>

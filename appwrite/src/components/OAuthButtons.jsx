@@ -2,10 +2,12 @@ import { Account } from 'appwrite'
 import { useState } from 'react'
 import { client } from '../lib/appwrite'
 import { Button } from '@/components/ui/button'
+import { useToast } from '@/hooks'
 
 const account = new Account(client)
 
 const OAuthButtons = () => {
+	const { toast } = useToast()
 	const [error, setError] = useState('')
 
 	const handleOAuthSignIn = async (provider) => {
@@ -17,7 +19,13 @@ const OAuthButtons = () => {
 			)
 		} catch (err) {
 			setError(err.message || 'An error occurred during OAuth sign-in')
+			toast({ title: 'Login Failed', description: error, variant: 'destructive' })
 		}
+		toast({
+			title: 'Login Successful',
+			description: `Successfully logged in with ${provider}.`,
+			variant: 'success'
+		})
 	}
 
 	return (
