@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { account } from '../lib/appwrite'
-import { Button } from '../components/ui/button'
 const Landing = () => {
 	const navigate = useNavigate()
 	const [currentUser, setCurrentUser] = useState(null)
@@ -19,27 +18,10 @@ const Landing = () => {
 		fetchUser()
 	}, [navigate])
 
-	const logout = async () => {
-		try {
-			await account.deleteSession('current')
-			navigate('/login')
-		} catch (error) {
-			console.error('Logout error:', error)
-			if (error.code === 401) {
-				console.log('Session already invalid. Redirecting to login.')
-				navigate('/login')
-			} else {
-				console.error('Unexpected error during logout:', error)
-			}
-		}
-	}
 
 	return (
 		<div>
 			Home
-			<Button variant="outline" onClick={logout}>
-				Logout
-			</Button>
 			<h1 className="text-2xl font-bold">Welcome {currentUser?.name}!</h1>
 		</div>
 	)

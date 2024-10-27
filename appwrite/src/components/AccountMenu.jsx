@@ -3,10 +3,11 @@ import { User } from 'lucide-react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Button } from '@/components/ui'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { useNavigate } from 'react-router-dom'
 import { account } from '@/lib/appwrite'
 const AccountMenu = () => {
 	const [userData, setUserData] = useState(null)
-
+	const navigate = useNavigate()
 	useEffect(() => {
 		const fetchUserData = async () => {
 			try {
@@ -45,6 +46,21 @@ const AccountMenu = () => {
 	const avatarUrl = getAvatarUrl()
 	const initials = getInitials()
 
+	const logout = async () => {
+		try {
+			await account.deleteSession('current')
+			navigate('/login')
+		} catch (error) {
+			console.error('Logout error:', error)
+			if (error.code === 401) {
+				console.log('Session already invalid. Redirecting to login.')
+				navigate('/login')
+			} else {
+				console.error('Unexpected error during logout:', error)
+			}
+		}
+	}
+
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
@@ -59,7 +75,7 @@ const AccountMenu = () => {
 			<DropdownMenuContent className="bg-background/80 backdrop-blur-md" align="end">
 				<DropdownMenuItem>Profile</DropdownMenuItem>
 				<DropdownMenuItem>Settings</DropdownMenuItem>
-				<DropdownMenuItem>Logout</DropdownMenuItem>
+				<DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	)
