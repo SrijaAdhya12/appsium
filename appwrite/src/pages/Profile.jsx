@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import { account } from '@/lib/appwrite'
 import { Card, CardContent } from "@/components/ui/card"
 import { User, Mail, Calendar } from 'lucide-react'
-import { House } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Navbar } from '@/components'
+
 const Profile = () => {
 	const [user, setUser] = useState(null)
 	const [loading, setLoading] = useState(true)
@@ -37,11 +37,7 @@ const Profile = () => {
 
     return (
 		<div>
-			<div className="sm:mx-auto sm:container m-4">
-				<Link to="/">
-					<House />
-				</Link>
-			</div>
+			<Navbar />
 			<div className="min-h-screen flex items-center justify-center p-4">
 				<Card className="w-full max-w-md  overflow-hidden">
 					<div className="bg-gradient-to-r from-purple-500 to-pink-500 h-32 flex items-center justify-center">
