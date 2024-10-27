@@ -7,10 +7,12 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Link } from 'react-router-dom'
 import { OAuthButtons } from '@/components'
+import { useToast } from '@/hooks'
+
 const Register = () => {
 	const navigate = useNavigate()
 	const location = useLocation()
-
+	const { toast } = useToast()
 	const initialData = {
 		email: '',
 		password: '',
@@ -43,8 +45,21 @@ const Register = () => {
 			setLoggedInUser(currentUser)
 			const from = location.state?.from?.pathname || '/'
 			navigate(from, { replace: true })
+			toast({
+				title: 'Account created successfully!',
+				description: 'Welcome to your account.',
+				variant: 'default',
+				duration: 3000
+			})
 		} catch (error) {
+			toast({
+				title: 'Registration failed',
+				description: 'An error occurred during registration. Please try again.',
+				variant: 'destructive',
+				duration: 5000
+			})
 			console.error('Login failed: Please check your credentials and try again.')
+
 		}
 	}
 
@@ -52,8 +67,20 @@ const Register = () => {
 		try {
 			await account.create(ID.unique(), user.email, user.password, user.name)
 			await login(user.email, user.password)
+			toast({
+				title: 'Account created successfully!',
+				description: 'Welcome to your account.',
+				variant: 'default',
+				duration: 3000
+			})
 		} catch (error) {
 			console.error('Registration failed: An error occurred during registration. Please try again.')
+			toast({
+				title: 'Registration failed',
+				description: 'An error occurred during registration. Please try again.',
+				variant: 'destructive',
+				duration: 5000
+			})
 		}
 	}
 
