@@ -1,9 +1,25 @@
 import { Link } from 'react-router-dom'
-import { Menu, User, Home, Settings } from 'lucide-react'
+import { Menu, User, Home, Settings, LogOut } from 'lucide-react'
 import { Button } from '@/components/ui'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-
+import { account } from '@/lib/appwrite'
+import { useNavigate } from 'react-router-dom'
 const Sidebar = () => {
+	const navigate = useNavigate()
+	const logout = async () => {
+		try {
+			await account.deleteSession('current')
+			navigate('/login')
+		} catch (error) {
+			console.error('Logout error:', error)
+			if (error.code === 401) {
+				console.log('Session already invalid. Redirecting to login.')
+				navigate('/login')
+			} else {
+				console.error('Unexpected error during logout:', error)
+			}
+		}
+	}
 	return (
 		<Sheet>
 			<SheetTrigger asChild>
@@ -20,6 +36,10 @@ const Sidebar = () => {
 					<Link to="/profile" className="flex items-center py-2">
 						<User className="mr-2" />
 						Profile
+					</Link>
+					<Link onClick={logout}  className="flex items-center py-2">
+						<LogOut className="mr-2" />
+						Logout
 					</Link>
 					<Link to="/settings" className="flex items-center py-2">
 						<Settings className="mr-2" />
