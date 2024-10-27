@@ -12,6 +12,7 @@ const AccountMenu = () => {
 		const fetchUserData = async () => {
 			try {
 				const user = await account.get()
+				console.log(user)
 				setUserData(user)
 			} catch (error) {
 				console.error('Error fetching user data:', error)
@@ -73,7 +74,7 @@ const AccountMenu = () => {
 				</Avatar>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent className="bg-background/80 backdrop-blur-md" align="end">
-				<DropdownMenuItem>Profile</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => navigate('/profile')}>Profile</DropdownMenuItem>
 				<DropdownMenuItem>Settings</DropdownMenuItem>
 				<DropdownMenuItem onClick={logout}>Logout</DropdownMenuItem>
 			</DropdownMenuContent>

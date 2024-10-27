@@ -21,8 +21,7 @@ const Landing = () => {
 
 	return (
 		<div>
-			Home
-			<h1 className="text-2xl font-bold">Welcome {currentUser?.name}!</h1>
+			<h1 className="sm:text-2xl text-xl sm:font-bold font-semibold">Welcome {currentUser?.name}!</h1>
 		</div>
 	)
 }

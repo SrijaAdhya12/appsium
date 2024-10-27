@@ -3,10 +3,10 @@ import { Landing } from '@/section'
 const Home = () => {
   return (
       <div>
-          <Navbar />
-          1234
+      <Navbar />
+      <div className="sm:mx-auto sm:container sm:my-20 mx-8 my-10">
           <Landing />
-          
+      </div>
     </div>
   )
 }
