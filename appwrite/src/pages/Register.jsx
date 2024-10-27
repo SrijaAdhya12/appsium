@@ -66,11 +66,25 @@ const Register = () => {
 			<CardContent className="space-y-4">
 				<div className="space-y-2">
 					<Label htmlFor="name">Name</Label>
-					<Input placeholder="Pritam" id="name" name="name" type="text" onChange={handleChange} value={user.name} />
+					<Input
+						placeholder="Pritam"
+						id="name"
+						name="name"
+						type="text"
+						onChange={handleChange}
+						value={user.name}
+					/>
 				</div>
 				<div className="space-y-2">
 					<Label htmlFor="email">Email</Label>
-					<Input placeholder="pritam@gmail.com" id="email" name="email" type="email" onChange={handleChange} value={user.email} />
+					<Input
+						placeholder="pritam@gmail.com"
+						id="email"
+						name="email"
+						type="email"
+						onChange={handleChange}
+						value={user.email}
+					/>
 				</div>
 				<div className="space-y-2">
 					<Label htmlFor="password">Password</Label>
