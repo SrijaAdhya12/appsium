@@ -21,7 +21,6 @@ const AccountMenu = () => {
 
 	const getAvatarUrl = () => {
 		if (!userData) return ''
-
 		if (userData.$providers?.includes('google')) {
 			return userData.prefs?.picture || ''
 		} else if (userData.$providers?.includes('github')) {
