@@ -1,4 +1,4 @@
-import React from 'react'
+import { SearchIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Avatar, Button, ModeToggle, Search, Separator } from '@/components/ui'
 import { AccountMenu, Sidebar } from '@/components'
@@ -48,7 +48,7 @@ const Navbar = () => {
 
 					<div className="flex items-center space-x-2 sm:hidden">
 						<Button variant="ghost" size="icon">
-							<Search className="h-5 w-5" />
+							<SearchIcon />
 						</Button>
 						<ModeToggle />
 						<Sidebar />
