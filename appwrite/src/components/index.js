@@ -3,4 +3,4 @@ export { default as OAuthButtons } from './OAuthButtons'
 export { default as AccountMenu } from './AccountMenu'
 export { default as Navbar } from './Navbar'
 export { default as Sidebar } from './Sidebar'
-
+export { default as PostForm } from './PostForm'

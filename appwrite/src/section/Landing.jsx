@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { account } from '../lib/appwrite'
+import { PostForm } from '@/components'
 const Landing = () => {
 	const navigate = useNavigate()
 	const [currentUser, setCurrentUser] = useState(null)
@@ -22,6 +23,7 @@ const Landing = () => {
 	return (
 		<div>
 			<h1 className="sm:text-2xl text-xl sm:font-bold font-semibold">Welcome {currentUser?.name}!</h1>
+			<PostForm />
 		</div>
 	)
 }
