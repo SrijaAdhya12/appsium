@@ -17,7 +17,7 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Developement](#developement)
+- [Installation](#installation-guide)
 - [Tech Stack Used](#tech-stack-used)
 - [Preview](#preview)
 - [Best Contributors](#best-contributors)
@@ -32,28 +32,26 @@
 - Instantly share posts and store media using Appwrite’s database and storage
 
 ![line]
-
-## Developement
-
-- Steps used for development of this project
-- Build processes
-- CI/CD commands
-- Docker commands
+  1. Download NodeJS >18.0.1
+  2. Run the following commands for running client (frontEnd)
+  3. set up `.env` with the help of `.env.example` file in appwrite folder
+```sh
+$> cd appwrite
+$> npm i       # install all packages
+$> npm run dev # run the project
+```
 
 ![line]
 
 ## Tech Stack Used
 
-- GitHub
-- Markdown
-- Prettier
-- Dependabot
-- GitHub Actions
-- Yaml
 - JavaScript
+- React
+- Appwrite
+- Vercel
 
-![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white) ![Prettier](https://img.shields.io/badge/prettier-1A2B34?style=for-the-badge&logo=prettier&logoColor=pink) ![Dependabot](https://img.shields.io/badge/dependabot-025E8C?style=for-the-badge&logo=dependabot&logoColor=white) ![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white) ![YAML](https://img.shields.io/badge/yaml-%23ffffff.svg?style=for-the-badge&logo=yaml&logoColor=151515) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Appwrite](https://img.shields.io/badge/appwrite-CA4245?style=for-the-badge&logo=appwrite&logoColor=white)  ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Lucide](https://img.shields.io/badge/lucide-%23CC0000.svg?style=for-the-badge&logo=lucid&logoColor=white) ![shadcn/ui](https://img.shields.io/badge/Shadcn/ui-black?style=for-the-badge&logo=shadcnui&logoColor=white)
 ![line]
 
 ## Preview
