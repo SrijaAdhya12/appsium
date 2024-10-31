@@ -1,4 +1,4 @@
-    updated on: 28th October 2024, Monday
+    updated on: 31st October 2024, Thursday
 
 <div align=center>
     <a href="https://github.com/SrijaAdhya12/appsium">
@@ -92,4 +92,4 @@
 [line]: https://user-images.githubusercontent.com/75939390/137615281-3a875960-92cc-407f-97fe-fd2319bdb252.png
 [License]: https://github.com/SrijaAdhya12/appsium/blob/main/LICENSE
 
-<!-- 28/10/24 -->
+<!-- 31/10/24 -->
