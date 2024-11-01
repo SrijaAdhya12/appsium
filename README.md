@@ -33,7 +33,7 @@
 
 ![line]
   1. Download NodeJS >18.0.1
-  2. Run the following commands for running client (frontEnd)
+  2. Run the following commands for runinng for appwrite folder
   3. set up `.env` with the help of `.env.example` file in appwrite folder
 ```sh
 $> cd appwrite
