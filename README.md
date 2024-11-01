@@ -1,4 +1,4 @@
-    updated on: 31st October 2024, Thursday
+    updated on: 01st November 2024, Friday
 
 <div align=center>
     <a href="https://github.com/SrijaAdhya12/appsium">
@@ -90,4 +90,4 @@ $> npm run dev # run the project
 [line]: https://user-images.githubusercontent.com/75939390/137615281-3a875960-92cc-407f-97fe-fd2319bdb252.png
 [License]: https://github.com/SrijaAdhya12/appsium/blob/main/LICENSE
 
-<!-- 31/10/24 -->
+<!-- 01/11/24 -->
